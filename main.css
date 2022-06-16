@@ -69,7 +69,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: var(--heavy-weight);
   font-size: 5vw;
-  line-height: calc(5vw + 10px);
+  line-height: calc(5vw + 15px);
 }
 
 #background-text {
@@ -86,7 +86,7 @@ body {
 }
 
 #sliding-text-viewport {
-  transform: translate(0, calc(-100% + 5vw + 10px));
+  transform: translate(0, calc(-100% + 10px + 5vw));
   position: relative;
   overflow: hidden;
   height: 100vh;
