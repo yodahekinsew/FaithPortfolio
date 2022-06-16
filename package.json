@@ -1,0 +1,10 @@
+{
+  "name": "Faith Jones Portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "blurhash": "^1.1.4",
+    "lodash.debounce": "^4.0.8"
+  }
+}
