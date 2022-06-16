@@ -5,11 +5,13 @@
 setTimeout(() => {
   var numIterations = 1;
   document.getElementById("sliding-text-holder").style.transform =
-    "translate(0px, calc(100% - 5vw - 10px))";
+    "translate(0px, calc(100% - 10px - 5vw - 10px))";
   let test = setInterval(() => {
     numIterations++;
 
-    let string = `translate(0px, calc(100% - 10px - ${numIterations * 5}vw))`;
+    let string = `translate(0px, calc(100% - 10px - ${numIterations * 5}vw - ${
+      numIterations * 10
+    }px))`;
     document.getElementById("sliding-text-holder").style.transform = string;
 
     if (numIterations == 7) clearInterval(test);
@@ -23,4 +25,4 @@ setTimeout(() => {
   }, 3500);
   // }, 0);
   // }, 5000);
-}, 0);
+}, 1000);

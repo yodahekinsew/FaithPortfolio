@@ -82,7 +82,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: var(--heavy-weight);
   font-size: 5vw;
-  line-height: 5vw;
+  line-height: calc(5vw + 10px);
 }
 
 #background-text {
