@@ -14,7 +14,16 @@ setTimeout(() => {
     }px + 15px))`;
     document.getElementById("sliding-text-holder").style.transform = string;
 
-    if (numIterations == 7) clearInterval(test);
+    // Check if we're done running through all the words (there are 7)
+    if (numIterations == 7) {
+      setTimeout(() => {
+        document.getElementById("sliding-text-viewport").style.overflow =
+          "unset";
+        document.getElementById("sliding-text-holder").style.transition =
+          "unset";
+      }, 500);
+      clearInterval(test);
+    }
   }, 500);
   // document.getElementById("sliding-text-holder").style.transform =
   //   "translate(0px, -10px)";
