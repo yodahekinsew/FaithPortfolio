@@ -1,7 +1,70 @@
 /**
+ * File Helper Functions
+ */
+function base64ToArrayBuffer(base64) {
+  var binaryString = window.atob(base64);
+  var binaryLen = binaryString.length;
+  var bytes = new Uint8Array(binaryLen);
+  for (var i = 0; i < binaryLen; i++) {
+    var ascii = binaryString.charCodeAt(i);
+    bytes[i] = ascii;
+  }
+  return bytes;
+}
+
+function saveByteArray(reportName, byte) {
+  var blob = new Blob([byte], { type: "application/pdf" });
+  var link = document.createElement("a");
+  link.href = window.URL.createObjectURL(blob);
+  var fileName = reportName;
+  link.download = fileName;
+  link.click();
+}
+
+/**
+ * Portfolio Logic
+ */
+var pdf = require("pdf-lib");
+
+// getPortfolioPage is expecting a url
+const getPortfolioPage = async (url) => {
+  const existingPdfBytes = await fetch(url).then((res) => res.arrayBuffer());
+  const pdfDoc = await pdf.PDFDocument.load(existingPdfBytes);
+  return pdfDoc;
+};
+
+// createCustomPortfolio is expecting a series of Portfolio page names
+const createCustomPortfolio = async (...sectionNames) => {
+  console.log("Creating custom portfolio");
+
+  // Convert the section names to the file names
+  sectionNames.unshift("title", "introduction");
+  fileNames = sectionNames.map(
+    (x) => "/static/portfolio_sections/" + x + ".pdf"
+  );
+
+  // Load PDF pages and insert them into the custom PDF
+  const customPDF = await pdf.PDFDocument.create();
+
+  for (const fileName of fileNames) {
+    let section = await getPortfolioPage(fileName);
+    let copiedPages = await customPDF.copyPages(
+      section,
+      section.getPageIndices()
+    );
+    copiedPages.forEach((page) => customPDF.addPage(page));
+  }
+
+  // Save the custom PDF and download it
+  const pdfBytes = await customPDF.save();
+  saveByteArray("Faith Jones Portfolio", pdfBytes);
+};
+
+// createCustomPortfolio("battle_boats", "solace", "pi_pie");
+
+/**
  * Startup
  */
-// window.addEventListener("load", () => {});
 setTimeout(() => {
   var numIterations = 1;
   document.getElementById("sliding-text-holder").style.transform =

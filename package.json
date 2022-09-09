@@ -5,6 +5,7 @@
   "main": "main.js",
   "dependencies": {
     "blurhash": "^1.1.4",
-    "lodash.debounce": "^4.0.8"
+    "lodash.debounce": "^4.0.8",
+    "pdf-lib": "^1.17.1"
   }
 }
