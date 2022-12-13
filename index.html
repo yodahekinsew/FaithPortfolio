@@ -9,15 +9,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-  <link rel="manifest" href="/favicon/site.webmanifest">
+  <script src="https://kit.fontawesome.com/885b6b8ec7.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="./main.css" />
   <title>Designed by Faith</title>
 </head>
 
 <body>
+  <img id="faith-logo" src="faith-logo.svg" alt="Designed by Faith logo"/>
+  <canvas id="circle-canvas" width="400" height="200">
+    Your browser does not support the HTML canvas tag.
+    </canvas>
   <!-- 
       Opening Transition:
         Ideated by Faith
@@ -33,14 +37,14 @@
       <div id="sliding-text-viewport-holder">
         <div id="sliding-text-viewport">
           <div id="sliding-text-holder">
-            <div class="sliding-text gray">Ideated</div>
-            <div class="sliding-text gray">Prototyped</div>
-            <div class="sliding-text gray">Tested</div>
-            <div class="sliding-text gray">Iterated</div>
-            <div class="sliding-text gray">Engineered</div>
-            <div class="sliding-text gray">Manufactured</div>
+            <div class="sliding-text text-blue">ideated</div>
+            <div class="sliding-text text-gray">prototyped</div>
+            <div class="sliding-text text-yellow">tested</div>
+            <div class="sliding-text text-red">iterated</div>
+            <div class="sliding-text text-blue">engineered</div>
+            <div class="sliding-text text-gray">manufactured</div>
             <!-- <div style="height: 25vh"></div> -->
-            <div class="sliding-text black">Designed</div>
+            <div id="designed-text" class="sliding-text text-black">designed</div>
           </div>
         </div>
       </div>
@@ -51,6 +55,18 @@
   <div id="nav-buttons">
     <a href="./static/faith-jones-resume.pdf" class="button">Resume</a>
     <a href="./static/faith-jones-portfolio.pdf" class="button">Portfolio</a>
+  </div>
+  <!-- SOCIAL LINKS -->
+  <div id="social-links">
+    <a href="https://www.linkedin.com/in/faith-jones-b17676190/" target="_blank" class="button bg-red">
+      <i class="fa-brands fa-youtube icon"></i>
+    </a>
+    <a href="https://www.youtube.com/@faithjones8352" target="_blank" class="button bg-blue">
+      <i class="fa-brands fa-linkedin icon"></i>
+    </a>
+    <a href="mailto:faith.jones2.718@gmail.com" target="_blank" class="button bg-yellow">
+      <i class="fa-solid fa-envelope icon"></i>
+    </a>
   </div>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script> -->
   <!-- <script data-main="main" src="scripts/require.min.js"></script> -->

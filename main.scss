@@ -8,66 +8,177 @@ body {
   overflow: hidden;
 }
 
+body {
+  background-color: var(--white);
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
 
 :root {
-  --blue: #c9e7f8;
-  --red: #ecb09b;
-  --yello: #f9e8ad;
+  // --blue: #c9e7f8;
+  --blue: #ABE0FF;
+  // --red: #ecb09b;
+  --red: #ECB09B;
+  // --yellow: #f9e8ad;
+  --yellow: #FFDF8D;
   --darkgrey: #b0ab9f;
+  --white: #FFFCF6;
+  --black: #000000; 
   --gray: rgb(200, 200, 200);
   --border-radius: 10px;
-  --heavy-weight: 700;
+  --heavy-weight: 900;
   // --blue: rgb(0, 0, 0);
   // --red: rgb(0, 0, 0);
-  // --yello: rgb(0, 0, 0);
+  // --yellow: rgb(0, 0, 0);
   // --darkgrey: rgb(0, 0, 0);
+}
+
+/**
+ COLORS
+**/
+.bg-yellow {
+  background-color: var(--yellow);
+}
+.bg-red {
+  background-color: var(--red);
+}
+.bg-blue {
+  background-color: var(--blue);
+}
+.bg-gray {
+  background-color: var(--darkgrey);
+}
+.bg-white {
+  background-color: var(--white);
+}
+.bg-black {
+  background-color: var(--black);
+}
+.text-yellow {
+  color: var(--yellow);
+}
+.text-red {
+  color: var(--red);
+}
+.text-blue {
+  color: var(--blue);
+}
+.text-gray {
+  color: var(--darkgrey);
+}
+.text-white {
+  color: var(--white);
+}
+.text-black {
+  color: var(--black);
+}
+
+.button {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  cursor: pointer;
+
+  transition: transform 500ms ease, background-color 250ms ease;
+  &:hover {
+    transition: transform 250ms ease, background-color 250ms ease;
+    transform: scale(1.1);
+  }
+  &:active {
+    transition: transform 250ms ease, background-color 250ms ease;
+    transform: scale(1.2);
+  }
 }
 
 #nav-buttons {
   --transition-duration: 0.5s;
   will-change: transform;
   display: flex;
+  flex-direction: column;
+  @include responsive.md { flex-direction: row; }
   // transition: transform var(--transition-duration) ease;
-  top: 60%;
-  transform: translate(-50%, 100%);
-  bottom: 0%;
+  top: 55%;
+  @include responsive.md { top: 60%; }
+  left: 50%;
+  @include responsive.md { transform: translate(-50%, 0);}
   z-index: 2;
   position: fixed;
   height: fit-content;
-  left: 50%;
-
-  // font-size: 96px;
 
   --button-size: 50px;
   .button {
+    height: 9vw;
+    @include responsive.md { height: min(100px, 8vw); }
+    width: 36vw;
+    @include responsive.md { width: min(250px, 24vw); }
+    border-radius: 9vw;
+    @include responsive.md { border-radius: min(100px, 8vw); }
+
     font-family: "Montserrat", sans-serif;
     font-weight: var(--heavy-weight);
+    font-size: 5vw;
+    @include responsive.md { font-size: 2.5vw; }
+    font-weight: 700;
     text-decoration: none;
-    color: white;
+    color: var(--white);
 
-    cursor: pointer;
-    transition: transform 500ms ease, background-color 250ms ease;
-    margin: 0px 10px;
+    margin: 10px 0px;
+    @include responsive.md { margin: 0px 50px; }
     padding: 10px;
-    border-radius: var(--border-radius);
     background-color: black;
 
-    &:hover {
-      transition: transform 250ms ease, background-color 250ms ease;
-      transform: scale(1.1);
-    }
-    &:active {
-      transition: transform 250ms ease, background-color 250ms ease;
-      transform: scale(1.2);
-    }
+    text-align: center;
+    line-height: 9vw;
+    @include responsive.md { line-height: min(100px, 8vw); }
+
 
     img {
       height: 100%;
       width: 100%;
     }
+  }
+}
+
+#social-links {
+  --transition-duration: 0.5s;
+  will-change: transform;
+  display: flex;
+  // transition: transform var(--transition-duration) ease;
+  bottom: min(50px, 5%);
+  // transform: translate(-50%, 100%);
+  z-index: 2;
+  position: fixed;
+  height: fit-content;
+  right: min(50px, 5%);
+
+  // font-size: 96px;
+
+  --button-size: 50px;
+  .button {
+    position: relative;
+
+    height: 20px;
+    width: 20px;
+    @include responsive.md { width: 60px; }
+    border-radius: 20px;
+
+    margin: 0px 10px;
+    padding: 10px;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .icon {
+    color: var(--white);
+    font-size: 20px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
   }
 }
 
@@ -82,14 +193,20 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: var(--heavy-weight);
   font-size: 5vw;
-  line-height: calc(5vw + 15px);
+  line-height: calc(5vw + 5px);
+  @include responsive.md { line-height: calc(5vw + 15px); }
 }
 
 #background-text {
   position: absolute;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  @include responsive.md { flex-direction: row; }
   width: 100%;
+  bottom: 50%;
+  @include responsive.md { bottom: 45%; }
+  padding-right: 50px;
+  @include responsive.md { padding-right: unset; }
 }
 
 #sliding-text-viewport-holder {
@@ -99,11 +216,14 @@ body {
 }
 
 #sliding-text-viewport {
-  transform: translate(0, calc(-100% + 10px + 5vw));
-  position: relative;
-  overflow: hidden;
+  // @include responsive.md { transform: translate(0, calc(-100% + 10px + 5vw)); }
+  position: absolute;
+  // @include responsive.md { position: relative; }
+  bottom: 0px;
+  // @include responsive.md { bottom: unset; }
+  // overflow: hidden;
   height: 100vh;
-  margin-right: 36px;
+  @include responsive.md { margin-right: 36px; }
   width: 100%;
 }
 
@@ -111,7 +231,7 @@ body {
   position: absolute;
   bottom: 0;
   right: 2vw; //36px;
-  transform: translate(0, 100%);
+  // @include responsive.md { transform: translate(0px, calc(100%)); }
   // transform: translate(0px, -10px);
   transition: transform 0.5s ease-in-out;
 }
@@ -119,26 +239,55 @@ body {
 .sliding-text {
   text-align: right;
 
-  &:nth-child(4n + 1) {
-    color: var(--blue);
-  }
-  &:nth-child(4n + 2) {
-    color: var(--red);
-  }
-  &:nth-child(4n + 3) {
-    color: var(--yello);
-  }
-  &:nth-child(4n + 4) {
-    color: var(--darkgrey);
-  }
+  // &:nth-child(4n + 1) {
+  //   color: var(--blue);
+  // }
+  // &:nth-child(4n + 2) {
+  //   color: var(--red);
+  // }
+  // &:nth-child(4n + 3) {
+  //   color: var(--yellow);
+  // }
+  // &:nth-child(4n + 4) {
+  //   color: var(--darkgrey);
+  // }
+}
 
-  &.black {
-    color: black;
-  }
+#designed-text {
+  font-size: 10vw;
+  @include responsive.md { font-size: 5vw; }
+  
+  line-height: 10vw;
+  @include responsive.md { line-height: 5vw; }
 }
 
 #by-faith-text {
   width: 100%;
   display: inline;
-  text-align: left;
+  text-align: right;
+  @include responsive.md { text-align: left; }
+
+  line-height: 10vw;
+  @include responsive.md { line-height: 5vw; }
+
+  font-size: 10vw;
+  @include responsive.md { font-size: 5vw; }
+}
+
+#circle-canvas {
+  position: fixed;
+  left: 0;
+  @include responsive.md { left: unset; right: 0; }
+  transform: translate(-50%, 0);
+  @include responsive.md { transform: translate(50%, 0); }
+}
+
+#faith-logo {
+  position: fixed;
+  left: 0;
+  @include responsive.md { left: unset; right: 0; }
+  width: 8vw;
+  @include responsive.md { width: 4vw; }
+  padding: 4vw;
+  @include responsive.md { padding: 1vw; }
 }
