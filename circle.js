@@ -60,7 +60,7 @@ const update = (timestamp) => {
     let deltaTime = (timestamp - lastTimestamp)/1000;
     
     ctx.clearRect(0, 0, c.width, c.height);
-    c.width = .5 * window.innerWidth;
+    c.width = .4 * window.innerWidth;
     if (window.innerWidth < 768) c.width = .7 * window.innerWidth;
     c.height = .5 * c.width;
 

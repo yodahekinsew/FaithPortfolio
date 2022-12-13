@@ -336,7 +336,7 @@ body {
 #faith-logo {
   position: fixed;
   left: 0;
-  width: 8vw;
+  width: 6vw;
   padding: 4vw;
 }
 @media (min-width: 768px) {
@@ -347,7 +347,7 @@ body {
 }
 @media (min-width: 768px) {
   #faith-logo {
-    width: 4vw;
+    width: 3vw;
   }
 }
 @media (min-width: 768px) {
