@@ -103,8 +103,9 @@ const getStyleString = () => `translate(0px, calc(5vw + ${numIterations * 5}vw +
 console.log(getStyleString());
 document.getElementById("sliding-text-holder").style.transform = getStyleString();
 document.getElementById("sliding-text-viewport").style.overflow = "hidden";
+var startingAnimInterval;
 const startingAnimTimeout = setTimeout(() => {
-  let test = setInterval(() => {
+  startingAnimInterval = setInterval(() => {
     numIterations--;
 
     if (numIterations > -1) {
@@ -116,7 +117,7 @@ const startingAnimTimeout = setTimeout(() => {
         document.getElementById("sliding-text-viewport").style.overflow = "unset";
         document.getElementById("sliding-text-holder").style.transition = "unset";
       }, 500);
-      clearInterval(test);
+      clearInterval(startingAnimInterval);
     }
   }, 500);
 }, 1000)
@@ -125,12 +126,14 @@ function myFunction(x) {
   if (x.matches) { // Screen width is at least as large as 768px
     // document.getElementById("sliding-text-holder").style.transform = "translate(0px, calc(100% - 5vw - 15px))";
   } else {
-    console.log("hello");
     clearTimeout(startingAnimTimeout);
+    clearInterval(startingAnimInterval);
+    document.getElementById("sliding-text-viewport").style.overflow = "unset";
+    document.getElementById("sliding-text-holder").style.transition = "unset";
     document.getElementById("sliding-text-holder").style.transform = "translate(0, -10px)";
   }
 }
 
 var x = window.matchMedia("(min-width: 768px)")
 myFunction(x) // Call listener function at run time
-x.addEventListener(myFunction) // Attach listener function on state changes
+x.addListener(myFunction) // Attach listener function on state changes
