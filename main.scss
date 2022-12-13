@@ -24,7 +24,7 @@ body {
   // --yellow: #f9e8ad;
   --yellow: #FFDF8D;
   --darkgrey: #b0ab9f;
-  --white: #FFFCF6;
+  --white: #FFFEFA;
   --black: #000000; 
   --gray: rgb(200, 200, 200);
   --border-radius: 10px;
@@ -219,7 +219,7 @@ body {
   // @include responsive.md { transform: translate(0, calc(-100% + 10px + 5vw)); }
   position: absolute;
   // @include responsive.md { position: relative; }
-  bottom: 0px;
+  bottom: -10px;
   // @include responsive.md { bottom: unset; }
   // overflow: hidden;
   height: 100vh;

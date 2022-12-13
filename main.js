@@ -65,8 +65,6 @@ const createCustomPortfolio = async (...sectionNames) => {
 /**
  * Startup Animation
  */
-var numIterations = 1;
-let string = `translate(0px, calc(5vw + ${numIterations * 5}vw + ${numIterations * 15}px) + 7.5px)`;
 // setTimeout(() => {
 //   var numIterations = 1;
 //   document.getElementById("sliding-text-holder").style.transform =
@@ -98,16 +96,41 @@ let string = `translate(0px, calc(5vw + ${numIterations * 5}vw + ${numIterations
 //   }, 3500);
 //   // }, 0);
 //   // }, 5000);
-// }, 1000);
+// }, 1000);c
 
-// function myFunction(x) {
-//   if (x.matches) { // Screen width is at least as large as 768px
-//     document.getElementById("sliding-text-holder").style.transform = "translate(0px, calc(100% - 5vw - 15px))";
-//   } else {
-//     document.getElementById("sliding-text-holder").style.transform = "unset";
-//   }
-// }
+var numIterations = 6;
+const getStyleString = () => `translate(0px, calc(5vw + ${numIterations * 5}vw + ${numIterations * 15}px + 7.5px - 10px))`;
+console.log(getStyleString());
+document.getElementById("sliding-text-holder").style.transform = getStyleString();
+document.getElementById("sliding-text-viewport").style.overflow = "hidden";
+const startingAnimTimeout = setTimeout(() => {
+  let test = setInterval(() => {
+    numIterations--;
 
-// var x = window.matchMedia("(min-width: 768px)")
-// myFunction(x) // Call listener function at run time
-// x.addEventListener(myFunction) // Attach listener function on state changes
+    if (numIterations > -1) {
+      document.getElementById("sliding-text-holder").style.transform = getStyleString();
+    } else if (numIterations == -1) {
+      document.getElementById("sliding-text-holder").style.transform = "translate(0, -10px)";
+    } else {
+      setTimeout(() => {
+        document.getElementById("sliding-text-viewport").style.overflow = "unset";
+        document.getElementById("sliding-text-holder").style.transition = "unset";
+      }, 500);
+      clearInterval(test);
+    }
+  }, 500);
+}, 1000)
+
+function myFunction(x) {
+  if (x.matches) { // Screen width is at least as large as 768px
+    // document.getElementById("sliding-text-holder").style.transform = "translate(0px, calc(100% - 5vw - 15px))";
+  } else {
+    console.log("hello");
+    clearTimeout(startingAnimTimeout);
+    document.getElementById("sliding-text-holder").style.transform = "translate(0, -10px)";
+  }
+}
+
+var x = window.matchMedia("(min-width: 768px)")
+myFunction(x) // Call listener function at run time
+x.addEventListener(myFunction) // Attach listener function on state changes

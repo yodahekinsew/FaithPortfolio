@@ -52,7 +52,7 @@ const drawCircles = (numCircles, angleOffset) => {
 }
 
 var angleOffset = 0;
-const angleOffsetDelta = 10;
+const angleOffsetDelta = 5;
 
 var lastTimestamp = 0;
 

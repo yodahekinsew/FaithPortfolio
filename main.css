@@ -19,7 +19,7 @@ body {
   --red: #ECB09B;
   --yellow: #FFDF8D;
   --darkgrey: #b0ab9f;
-  --white: #FFFCF6;
+  --white: #FFFEFA;
   --black: #000000;
   --gray: rgb(200, 200, 200);
   --border-radius: 10px;
@@ -257,7 +257,7 @@ body {
 
 #sliding-text-viewport {
   position: absolute;
-  bottom: 0px;
+  bottom: -10px;
   height: 100vh;
   width: 100%;
 }
