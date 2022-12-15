@@ -291,3 +291,8 @@ body {
   padding: 4vw;
   @include responsive.md { padding: 1vw; }
 }
+
+#fade-in {
+  display: none;
+  @include responsive.md { display: unset;}
+}

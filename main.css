@@ -356,4 +356,13 @@ body {
   }
 }
 
+#fade-in {
+  display: none;
+}
+@media (min-width: 768px) {
+  #fade-in {
+    display: unset;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */

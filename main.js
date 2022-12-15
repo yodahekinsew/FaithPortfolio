@@ -119,13 +119,11 @@ const startingAnimTimeout = setTimeout(() => {
       }, 500);
       clearInterval(startingAnimInterval);
     }
-  }, 500);
-}, 1000)
+  }, 750);
+}, 0)
 
 function myFunction(x) {
-  if (x.matches) { // Screen width is at least as large as 768px
-    // document.getElementById("sliding-text-holder").style.transform = "translate(0px, calc(100% - 5vw - 15px))";
-  } else {
+  if (!x.matches) {
     clearTimeout(startingAnimTimeout);
     clearInterval(startingAnimInterval);
     document.getElementById("sliding-text-viewport").style.overflow = "unset";
